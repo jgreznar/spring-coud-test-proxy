@@ -1,0 +1,16 @@
+zuul:
+  host:
+    socket-timeout-millis: 60000
+    connection-request-timeout-millis: 60000
+  sslHostnameValidationEnabled: false
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    jenkins:
+      path: /**
+      url: http://192.168.1.64:8060
+      sensitiveHeaders: Cookie,Set-Cookie
+      strip-prefix: false
+      retryable: true
+  add-host-header: true
+  add-proxy-headers: true
+  ignore-security-headers: false
